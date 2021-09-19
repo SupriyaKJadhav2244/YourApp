@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
     if(localStorage.getItem('User')=="auth"){
       return true;
     }else{
-      return false;  
+      return false;      
     }
   }
   
