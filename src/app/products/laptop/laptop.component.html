@@ -1,0 +1,43 @@
+ <h1 align="center">
+  We have {{totProds}} ptoducts in our stock...!
+</h1>
+
+<div class="container row" style=" margin: 10px auto;">
+  <div style="border: 1px solid gray;width: 350px;" class="container col col-sm-4" *ngFor="let laptop of laptops">
+    <div class="card" style="width: 300px;height: 600px;">
+        <img class="card-img-top" [src]="laptop.imgSrc" height="200px" alt="Card image cap">
+        <div class="card-img-overlay">
+          <h5 class="card-title" style="color: red;">{{laptop.productName | uppercase}}</h5>
+        </div>
+        <div class="card-body">
+          <p>Product ID : {{laptop.productId}}</p>
+          <p>Product Name : {{laptop.productName}}</p>
+          <p>Product Instock : {{laptop.inStock}}</p> 
+          <del><p [ngStyle]="{color:laptop.isVeg?'green':'red'}">Product Price : {{laptop.price | currency:'INR':'code'}}</p></del>  
+          <p style="color: blue;">Discount Price : {{laptop.price | laptopFilter:laptop.productName | currency:'INR':'code'}}</p> 
+          <span [ngSwitch]="laptop.country">Country : 
+            <img *ngSwitchCase="'India'"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/23px-Flag_of_India.svg.png"
+                  width="24"  
+            >
+            <img *ngSwitchCase="'Australia'"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png"
+                  width="24"  
+            > 
+            <img *ngSwitchCase="'Germany'"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png"
+                  width="24"  
+            >  
+          </span><br><br>
+           <p class="text-center"> 
+            <button class="btn btn-danger" (click)="removeLapQuentity(laptop)" style="position: relative;">Remove</button>&nbsp;&nbsp;
+              <span>{{ laptop.quentity}}</span>&nbsp;&nbsp; 
+            <button class="btn btn-primary" (click)="addLapQuentity(laptop)" style="position: relative;">Add</button>
+          </p> 
+        </div>
+      </div>
+      <div class="col-md-12 text-center">
+        <a class="btn btn-primary" [routerLink]="['/laptopSpecificData',laptop.productName]" style="margin-bottom: 5px;">Submit</a> 
+      </div> 
+    </div>  
+    </div> 

@@ -1,0 +1,26 @@
+<div class="container col col-sm-12" style="width:100%;height:auto;border: 1px solid gray;padding:10px 20px">
+    <form [formGroup]="logForm" (ngSubmit)="log(logForm)">
+        <!-- {{logForm.valid}} -->
+        <div class="row">
+            <div class="col col-sm-12">  
+                <label>Email Id : </label>
+                    <input type="email" formControlName="email" #emailId class="form-control" [class.is-invalid]="logForm.get('email')?.invalid && logForm.get('email')?.touched" placeholder="Enter Your Email-Id">
+                <span *ngIf="logForm.get('email')?.invalid && logForm.get('email')?.touched">
+                    <p class="text-danger" *ngIf="logForm.get('email')?.errors?.required">Email Is Required</p> 
+                    <p class="text-danger" *ngIf="logForm.get('email')?.errors?.email">Email Id Is Not Correct</p>
+                </span>
+
+                <label>Password : </label>
+                    <input type="password" formControlName="password" #pass class="form-control" [class.is-invalid]="logForm.get('password')?.invalid && logForm.get('password')?.touched" placeholder="Enter Your Password">
+                <span *ngIf="logForm.get('password')?.invalid && logForm.get('password')?.touched">
+                    <p class="text-danger" *ngIf="logForm.get('password')?.errors?.required">Password Is Required</p>
+                    <p class="text-danger" *ngIf="logForm.get('password')?.errors?.minlength">Enter Valid Password Id</p>
+                </span> 
+
+                <div style="margin-top: 10px;" align="center">
+                    <input type="submit" class="btn btn-primary" [disabled]="logForm.invalid" value="Submit">  
+                </div>      
+            </div>
+        </div>
+    </form>
+</div>

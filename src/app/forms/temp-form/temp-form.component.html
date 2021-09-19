@@ -1,0 +1,79 @@
+<div class="container col col-sm-12" style="width:100%;height:auto;border: 1px solid gray;padding:10px 20px">
+    <form #RegiForm="ngForm" (ngSubmit)="registration(RegiForm)">
+        <!-- {{RegiForm.valid}} -->
+        <div class="row">
+            <div class="col col-sm-12">
+                <label>Full Name : </label>
+                    <input type="text" name="Fname" ngModel #FullName="ngModel" [class.is-invalid]="FullName.invalid && FullName.touched" class="form-control" placeholder="Enter Your Name" required>
+                <span [class.d-none]="FullName.untouched || FullName.valid">
+                    <p class="text-danger">Name Is Required</p>
+                </span>
+
+                <label>Email Id : </label>
+                    <input type="email" name="email" ngModel #Email="ngModel" [class.is-invalid]="Email.invalid && Email.touched" class="form-control" placeholder="Enter Your Email-Id" required>
+                <span *ngIf="Email.errors && (Email.touched && Email.invalid)">
+                    <p class="text-danger" *ngIf="Email.errors?.required">Email Is Required</p>
+                    <p class="text-danger" *ngIf="Email.errors?.email">Enter Valid Email Id</p>
+                </span>
+
+                <label>Password : </label>
+                    <input type="password" name="password" ngModel #Password="ngModel" [class.is-invalid]="Password.invalid && Password.touched" class="form-control" placeholder="Enter Your Password" required>
+                <span *ngIf="Password.errors && (Password.touched && Password.invalid)">
+                    <p class="text-danger" *ngIf="Password.errors?.required">Password Is Required</p> 
+                </span>
+
+                <label>Address : </label>
+                    <textarea type="text" name="address" ngModel #Address="ngModel" [class.is-invalid]="Address.invalid && Address.touched" class="form-control" placeholder="Enter Your Address" required></textarea>
+                <span *ngIf="Address.errors && (Address.touched && Address.invalid)">
+                    <p class="text-danger" *ngIf="Address.errors?.required">Address Is Required</p>
+                    <p class="text-danger" *ngIf="Address.errors?.pattern">Enter Valid Address Id</p>
+                </span>
+
+                <label>Pin Code : </label>
+                    <input type="number" name="pincode" ngModel #PinCode="ngModel" [class.is-invalid]="PinCode.invalid && PinCode.touched" class="form-control" placeholder="Enter Your Pin Code" required> 
+                <span *ngIf="PinCode.touched && PinCode.invalid">
+                    <p class="text-danger">PinCode Is Required</p> 
+                </span>
+                    
+                <label>State : </label>
+                    <select type="text" name="state" ngModel #State="ngModel" class="form-control" [class.is-invalid]="State.invalid && State.touched" required>
+                        <option value="">Select</option>
+                        <option  *ngFor="let statename of stateName" value="{{statename.name}}">{{statename.name}}</option>
+                        <!-- <option value="Gujarat">Gujarat</option> -->
+                    </select> 
+                <span *ngIf="State.touched && State.invalid">
+                    <p class="text-danger">State Is Required</p> 
+                </span>
+
+                <label>Gender : </label>&nbsp;&nbsp;
+                    <input type="radio" name="Gender" ngModel #Gender="ngModel" value="female" required>Female   
+                    <input type="radio" name="Gender" ngModel #Gender="ngModel" value="male" required>Male<br>   
+                <span [class.d-none]="Gender.untouched || Gender.valid">
+                    <p class="text-danger">Gender Is Required</p> 
+                </span>
+
+                <label>Birth Date : </label>
+                    <input type="date" name="date" ngModel #Date="ngModel" [class.is-invalid]="Date.invalid && Date.touched" class="form-control" required>
+                <span *ngIf="Date.touched && Date.invalid">
+                    <p class="text-danger">Date Is Required</p> 
+                </span>
+
+                <label>Time : </label>
+                    <input type="time" name="time" ngModel #Time="ngModel" [class.is-invalid]="Time.invalid && Time.touched" class="form-control" required>  
+                <span *ngIf="Time.touched && Time.invalid">
+                    <p class="text-danger">Date Is Required</p> 
+                </span>
+
+                <label>Check : &nbsp;&nbsp;</label>
+                    <input type="checkbox" name="check" ngModel #Check="ngModel" value="true" required>
+                <span *ngIf="Check.touched && Check.invalid">
+                    <p class="text-danger">Date Is Required</p> 
+                </span>
+
+                <div style="margin-top: 10px;" align="center">
+                    <input type="submit" class="btn btn-primary" [disabled]="RegiForm.invalid" value="Submit">  
+                </div>      
+            </div>
+        </div>
+    </form>
+</div>

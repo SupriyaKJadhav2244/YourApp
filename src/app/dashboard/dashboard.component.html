@@ -1,0 +1,104 @@
+<!-- <p>dashboard works!</p> --> 
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col col-lg-12">
+      <figcaption align="top"><h3>Book Information</h3></figcaption> 
+      <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Instock</th>
+            <th>Product Price</th> 
+            <th>Product Discount Price</th>
+            <th>Country</th>
+            <th>Product Image</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of bookData">
+            <td>{{book.productId}}</td>
+            <td>{{book.productName}}</td>
+            <td>{{book.inStock}}</td>
+            <td><del class="text-danger">{{book.price | currency:'INR':'code'}}</del></td>
+            <td style="color: blue;">{{book.price | bookFilter:book.productName | currency:'INR':'code'}}</td>
+            <td>{{book.country}}</td>
+            <td>
+              <a [href]="book.imgSrc">
+                <img [src]="book.imgSrc" height="80px" alt="Book Image">
+                <p>(Click Here To View Image)</p>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <figcaption align="top"><h3>Mobile Information</h3></figcaption> 
+      <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Instock</th>
+            <th>Product Price</th> 
+            <th>Product Discount Price</th>
+            <th>Country</th>
+            <th>Product Image</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mobile of mobileData">
+            <td>{{mobile.productId}}</td>
+            <td>{{mobile.productName}}</td>
+            <td>{{mobile.inStock}}</td>
+            <td><del class="text-danger">{{mobile.price | currency:'INR':'code'}}</del></td>
+            <td style="color: blue;">{{mobile.price | mobileFilter:mobile.productName | currency:'INR':'code'}}</td>
+            <td>{{mobile.country}}</td>
+            <td>
+              <a [href]="mobile.imgSrc">
+                <img [src]="mobile.imgSrc" height="90px" alt="Mobile Image">
+                <p>(Click Here To View Image)</p>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <figcaption align="top"><h3>Laptop Information</h3></figcaption> 
+      <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Instock</th>
+            <th>Product Price</th> 
+            <th>Product Discount Price</th>
+            <th>Country</th>
+            <th>Product Image</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let laptop of laptopData">
+            <td>{{laptop.productId}}</td>
+            <td>{{laptop.productName}}</td>
+            <td>{{laptop.inStock}}</td>
+            <td><del  class="text-danger">{{laptop.price | currency:'INR':'code'}}</del></td>
+            <td style="color: blue;">{{laptop.price | laptopFilter:laptop.productName | currency:'INR':'code'}}</td>
+            <td>{{laptop.country}}</td>
+            <td>
+              <a [href]="laptop.imgSrc">
+                <img [src]="laptop.imgSrc" height="50px" alt="Laptop Image">
+                <p>(Click Here To View Image)</p>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+</div> 

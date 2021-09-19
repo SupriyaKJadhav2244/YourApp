@@ -1,0 +1,50 @@
+ <h1 align="center">
+  We have {{totProds}} ptoducts in our stock...!
+</h1> 
+
+<div class="container row" style=" margin: 10px auto;">
+<div style="border: 1px solid gray;width: 350px;" class="container col col-sm-4" *ngFor="let mobile of mobiles">
+<div class="card" style="width: 300px;height: 600px;">
+  <img class="card-img-top" [src]="mobile.imgSrc" height="200px" alt="Card image cap">
+        <div class="card-img-overlay"> 
+          <h5 class="card-title" style="color: red;">{{mobile.productName | uppercase}}</h5>
+        </div>
+  <div class="card-body">
+    <p>Product ID : {{mobile.productId}}</p>
+    <p>Product Name : {{mobile.productName}}</p>
+
+    <p *ngIf="mobile.inStock>0;else outOfStock">
+      Product Instock : {{mobile.inStock}}
+    </p> 
+    <ng-template #outOfStock>
+      <p style="color: red;">Product Instock :<br>Mobile Out Of Stock..!</p>
+    </ng-template>  
+
+    <del><p [ngStyle]="{color:mobile.isVeg?'green':'red'}">Product Price : {{mobile.price | currency:'INR':'code'}}</p></del>
+    <p style="color: blue;">Discount Price : {{mobile.price | mobileFilter:mobile.productName | currency:'INR':'code'}}</p> 
+    <span [ngSwitch]="mobile.country">Country : 
+      <img *ngSwitchCase="'India'"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/23px-Flag_of_India.svg.png"
+            width="24"  
+      >
+      <img *ngSwitchCase="'Australia'"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png"
+            width="24"  
+      > 
+      <img *ngSwitchCase="'Germany'"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png"
+            width="24"  
+      >  
+    </span><br><br> 
+    <p> 
+      <button class="btn btn-danger" (click)="removeMobQuentity(mobile)" style="position: relative;">Remove</button>&nbsp;&nbsp;
+        <span>{{ mobile.quentity}}</span>&nbsp;&nbsp; 
+      <button class="btn btn-primary" (click)="addMobQuentity(mobile)" style="position: relative;">Add</button> 
+    </p> 
+  </div> 
+</div>
+<div class="col-md-12 text-center">
+  <a class="btn btn-primary" [routerLink]="['/mobSpecificData',mobile.productName]" style="margin-bottom: 5px;">Submit</a> 
+</div> 
+</div> 
+</div> 
