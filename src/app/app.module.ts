@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-  
+import { HttpClientModule } from '@angular/common/http';  
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { BannerFirstComponent } from './layout/banner-first/banner-first.component';
@@ -62,7 +62,7 @@ import { BooksperticulardataComponent } from './specificdatacalls/booksperticula
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

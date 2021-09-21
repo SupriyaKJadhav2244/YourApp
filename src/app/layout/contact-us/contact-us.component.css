@@ -1,0 +1,37 @@
+.fa-whatsapp  {
+    color:#fff;
+    background:
+    linear-gradient(#25d366,#25d366) no-repeat,
+    radial-gradient(#25d366 60%,transparent 0);
+  }
+  .fa-twitter  {
+     color: skyblue;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+  }
+  .fa-facebook  {
+     color: blue;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+  }
+  .fa-instagram  {
+     color: #C60950;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+  }
+  .fa-envelope  {
+     color: #7DC010;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+  }
+  
+  .fa-phone  {
+     color: #69B92D;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+  } 
+  .fa-map-marker {
+     color: red;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+  } 
